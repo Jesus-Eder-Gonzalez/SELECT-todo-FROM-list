@@ -3,7 +3,11 @@ DROP TABLE IF EXISTS todo_app;
 END;
 
 BEGIN;
-DELETE FROM pg_user WHERE EXISTS (SELECT usename FROM pg_user WHERE usename='michael');
+DELETE FROM pg_user WHERE EXISTS (SELECT usename FROM pg_user WHERE usename=michael);
+END;
+
+BEGIN;
+CREATE USER michael WITH ENCRYPTED PASSWORD 'stonebreaker';
 END;
 
 BEGIN;
