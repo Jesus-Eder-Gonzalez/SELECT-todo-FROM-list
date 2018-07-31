@@ -30,3 +30,8 @@ ALTER TABLE tasks
   ALTER COLUMN updated_at SET NOT NULL,
   ALTER COLUMN updated_at SET DEFAULT now();
 END;
+
+BEGIN;
+INSERT INTO tasks VALUES (DEFAULT, 'Study SQL', 'Complete this exercise', DEFAULT, DEFAULT, DEFAULT);
+INSERT INTO tasks VALUES (DEFAULT, 'Study PostgreSQL', 'Read all the documentation', DEFAULT, DEFAULT, DEFAULT);
+END;
