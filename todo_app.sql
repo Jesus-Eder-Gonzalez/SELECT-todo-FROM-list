@@ -10,6 +10,5 @@ BEGIN;
 CREATE USER michael WITH ENCRYPTED PASSWORD 'stonebreaker';
 END;
 
-BEGIN;
+CREATE DATABASE todo_app;
 
-END;
