@@ -12,11 +12,21 @@ CREATE DATABASE todo_app;
 
 \c todo_app;
 
+BEGIN;
 CREATE TABLE tasks (
-  id integer PRIMARY KEY NOT NULL,
-  title varchar(255) NOT NULL,
-  description text,
-  created_at timestamp DEFAULT now() NOT NULL,
-  updated_at timestamp,
-  completed boolean DEFAULT false NOT NULL
+  id SERIAL PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  created_at TIMESTAMP DEFAULT now() NOT NULL,
+  updated_at TIMESTAMP,
+  completed BOOLEAN DEFAULT false NOT NULL
 );
+END;
+
+BEGIN;
+ALTER TABLE tasks 
+  DROP COLUMN completed,
+  ADD COLUMN completed_at TIMESTAMP DEFAULT NULL,
+  ALTER COLUMN updated_at SET NOT NULL,
+  ALTER COLUMN updated_at SET DEFAULT now();
+END;
