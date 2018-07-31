@@ -1,3 +1,11 @@
+BEGIN;
 DROP TABLE IF EXISTS todo_app;
-DELETE FROM todo_app 
-WHERE user = 'michael';
+END;
+
+BEGIN;
+DELETE FROM pg_user WHERE EXISTS (SELECT usename FROM pg_user WHERE usename='michael');
+END;
+
+BEGIN;
+
+END;
